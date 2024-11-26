@@ -1,0 +1,14 @@
+<div>
+    <button (click)="alterarMostrarTarefaAddTask()" class="btn btn2" >  {{textoBtn}}</button>
+    @if(mostrarTarefaAddTask){
+        <app-add-task (onAddTask)="AddTask($event)" ></app-add-task>
+    }
+    
+    @for(tarefa of tarefas; track tarefa){
+         <app-task-item 
+            [tarefa] = "tarefa" 
+            (onDeleteTask)="deleteTask($event)"
+            (onToggleConcluido)="toggleConcluiido($event)"
+        ></app-task-item> 
+    }
+</div>
